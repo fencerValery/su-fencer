@@ -10,25 +10,26 @@ public class Hello{
    // for forward code from decimal to binary
    public static String translationDecimalToBinaryInt(int xx){
      int x = Math.abs(xx);
-     StringBuilder  str= new StringBuilder("00000000000000000000000000000000");
-     
+     StringBuilder  str = new StringBuilder("00000000000000000000000000000000");
+      System.out.println(str.length());
        if (xx >= 0){
-         for (int i = str.length(); i >= 0; i--){
+         for (int i = str.length() - 1; i >= 0; i--){
            int y = x % 2;    
            x /= 2;
-           str.delete(i, i);
+           str.deleteCharAt(i);
            str.insert(i, y);
              if (x == 0){
                break;
               }      
           }
        }
-     
+       
+      
        if (xx < 0){
-          for (int i = str.length(); i >= 0; i--){
+          for (int i = str.length() - 1; i >= 0; i--){
             int y = x % 2;    
             x /= 2;
-            str.delete(i, i);
+            str.deleteCharAt(i);
             str.insert(i, y);
               if (x == 0){
                  str.deleteCharAt(0);
