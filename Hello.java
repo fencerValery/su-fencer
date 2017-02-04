@@ -40,5 +40,41 @@ public class Hello{
       }
        return str.toString();
   }
+
+  public static int randomNumber(int a, int b){
+    Random ran = new Random();
+    int x = ran.nextInt(b - a) + a;
+    return x;
+  }
+
+  public static int[] createMas(int x, int a, int b){
+    int[] mas = new int[x];
+     for (int i = 0; i < mas.length; i++){
+       mas[i] = randomNumber(a, b);
+     }
+     return mas;
+  }
+
+  public static void printMas(int[] mas){
+    for (int x: mas){
+       System.out.print(x + " ");
+    }
+  }
+  
+  // lambda expression
+  interface RandomNum{
+  int createNum(int a, int b);
+  }
+
+ public static int[] createMasLambda(int z){
+     
+    RandomNum rt;
+    rt = (x, y) -> (int)(Math.random()*(y - x) + x);    
+    int[] mas = new int[10];
+    for (int i = 0; i < mas.length; i++){
+        mas[i] = rt.createNum(10, 40);
+    }
+     return mas;
+ }
   
 }
